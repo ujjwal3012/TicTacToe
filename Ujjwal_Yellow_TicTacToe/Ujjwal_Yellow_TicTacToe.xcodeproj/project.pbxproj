@@ -17,6 +17,7 @@
 		AF0834A4229DD43B0082BF5F /* Ujjwal_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0834A3229DD43B0082BF5F /* Ujjwal_TableViewController.swift */; };
 		AF0834A6229DD4FD0082BF5F /* Ujjwal_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0834A5229DD4FD0082BF5F /* Ujjwal_TableViewCell.swift */; };
 		AF0834AB229DE3000082BF5F /* Ujjwal_GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0834AA229DE3000082BF5F /* Ujjwal_GameViewController.swift */; };
+		AF65B01A22A70CDC007EA284 /* Ujjwal_TicTacToeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF65B01922A70CDC007EA284 /* Ujjwal_TicTacToeGame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		AF0834A3229DD43B0082BF5F /* Ujjwal_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ujjwal_TableViewController.swift; sourceTree = "<group>"; };
 		AF0834A5229DD4FD0082BF5F /* Ujjwal_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ujjwal_TableViewCell.swift; sourceTree = "<group>"; };
 		AF0834AA229DE3000082BF5F /* Ujjwal_GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ujjwal_GameViewController.swift; sourceTree = "<group>"; };
+		AF65B01922A70CDC007EA284 /* Ujjwal_TicTacToeGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ujjwal_TicTacToeGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				AF0834A3229DD43B0082BF5F /* Ujjwal_TableViewController.swift */,
 				AF0834A5229DD4FD0082BF5F /* Ujjwal_TableViewCell.swift */,
 				AF0834AA229DE3000082BF5F /* Ujjwal_GameViewController.swift */,
+				AF65B01922A70CDC007EA284 /* Ujjwal_TicTacToeGame.swift */,
 			);
 			path = Ujjwal_Yellow_TicTacToe;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				AF0834A6229DD4FD0082BF5F /* Ujjwal_TableViewCell.swift in Sources */,
 				AF083478229DC1950082BF5F /* ViewController.swift in Sources */,
 				AF0834A4229DD43B0082BF5F /* Ujjwal_TableViewController.swift in Sources */,
+				AF65B01A22A70CDC007EA284 /* Ujjwal_TicTacToeGame.swift in Sources */,
 				AF0834AB229DE3000082BF5F /* Ujjwal_GameViewController.swift in Sources */,
 				AF083476229DC1950082BF5F /* AppDelegate.swift in Sources */,
 			);

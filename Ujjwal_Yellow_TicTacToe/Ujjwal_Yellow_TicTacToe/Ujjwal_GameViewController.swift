@@ -9,14 +9,37 @@
 import UIKit
 
 class Ujjwal_GameViewController: UIViewController {
+    
+    var theGameModel = Ujjwal_TicTacToeGame()
+    var gameIsOver = false
 
+    @IBOutlet weak var whoIsNext: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func squareTouched(_ sender: UIButton) {
+        print("Button Touched")
+        print(sender.tag)
+        
+        
+        if(sender.currentTitle == nil) && gameIsOver{
+        sender.setTitle(theGameModel.WhoseTurnIsIt, for: .normal)
+        theGameModel.playMove(sender.tag)
+            
+            
+            if(theGameModel.checkIfTheGameIsOver()){
+                whoIsNext.text = "Game Over"
+                gameIsOver = true
+                
+            }
+        
+        whoIsNext.text = theGameModel.WhoseTurnIsIt + "s Turn"
+        
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -27,4 +50,5 @@ class Ujjwal_GameViewController: UIViewController {
     }
     */
 
+}
 }
