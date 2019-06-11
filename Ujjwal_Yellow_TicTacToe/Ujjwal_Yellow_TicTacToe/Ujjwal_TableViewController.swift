@@ -10,14 +10,32 @@ import UIKit
 
 class Ujjwal_TableViewController: UITableViewController {
 
+    
+    var numGames = 0
+    var cellDataArray : Array<CellData> = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        loadData()
+        tableView.reloadData()
+    }
+    func loadData() {
+        cellDataArray = Array<CellData>()
+        
+        numGames = UserDefaults.standard.integer(forKey: Constants.NUMBER_OF_GAMES_PLAYED)
+        
+        for i in (1..<numGames+1).reversed() {
+            let game_whoWon = UserDefaults.standard.string(forKey: Constants.WHO_WON + String(i))!
+            let game_timeStamp = UserDefaults.standard.double(forKey: Constants.GAME_TIMESTAMP + String(i))
+            
+            let newCellData = CellData(whoWon : game_whoWon, timeStamp : game_timeStamp)
+            
+            cellDataArray.append(newCellData)
+        }
     }
 
     // MARK: - Table view data source
@@ -29,7 +47,7 @@ class Ujjwal_TableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+        return numGames
     }
 
     
@@ -37,10 +55,39 @@ class Ujjwal_TableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Ujjwal_table_cell", for: indexPath) as! Ujjwal_TableViewCell
 
         // Configure the cell...
-
-        cell.WIn_Loss_Image.image = UIImage(named: "yellow_win")
-        cell.Who_Won.text = "X won"
-        cell.date_played.text = "Today"
+        
+        // provide the right info
+        
+        
+        let cellNumber = indexPath.row
+        
+        let thisCellData = cellDataArray[cellNumber]
+        
+        
+        if(thisCellData.whoWon == "X"){
+            cell.WIn_Loss_Image.image = UIImage(named: "yellow_win")
+            cell.Who_Won.text = "X won!"
+        } else if (thisCellData.whoWon == "O") {
+        cell.WIn_Loss_Image.image = UIImage(named: "yellow_loss")
+            cell.Who_Won.text = "O Won!"
+            }else  {
+                cell.WIn_Loss_Image.image = UIImage(named: "yellow_loss")
+                cell.Who_Won.text = "Draw"
+            }
+        
+        
+        
+        
+        let gameTimeStamp = thisCellData.timeStamp
+        
+        let gameData = Date(timeIntervalSince1970: gameTimeStamp)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .short
+        
+        
+        cell.date_played.text = dateFormatter.string(from: gameData)
         
         
         return cell
@@ -92,4 +139,9 @@ class Ujjwal_TableViewController: UITableViewController {
     }
     */
 
+}
+struct CellData {
+    var whoWon : String
+    var timeStamp : Double
+    
 }

@@ -13,6 +13,8 @@ class Ujjwal_TicTacToeGame {
     var WhoseTurnIsIt = "X"
     var squareContents = Array (repeating: "", count: 9)
     var numberOfMovesPlayed = 0
+    var gameWinner  = ""
+    
     
     let winningCombos = [
         [0, 1, 2],
@@ -51,11 +53,14 @@ class Ujjwal_TicTacToeGame {
         return true
             }
             if (numberOfMovesPlayed == 9){
+                gameWinner = "Draw"
                 saveGame(whoWon: "Draw")
+                return true
             }
     }
 return false
 }
+    
     // save game
     func saveGame(whoWon: String) {
         //
@@ -65,9 +70,22 @@ return false
         UserDefaults.standard.set(numberOfGamesPlayed, forKey: Constants.NUMBER_OF_GAMES_PLAYED )
         
         UserDefaults.standard.set(whoWon, forKey: Constants.WHO_WON + String(numberOfGamesPlayed))
+        
+        let currentTime = Date().timeIntervalSince1970
+        
+        UserDefaults.standard.set(currentTime, forKey:
+            Constants.GAME_TIMESTAMP + String(numberOfGamesPlayed))
+        
+        print (numberOfGamesPlayed)
+        print (whoWon)
+        print (currentTime)
+        
+        
     }
 }
 struct Constants {
     static let NUMBER_OF_GAMES_PLAYED = "num_games"
     static let WHO_WON = "who_won"
+    static let GAME_TIMESTAMP = "game_timestamp_"
+    
 }

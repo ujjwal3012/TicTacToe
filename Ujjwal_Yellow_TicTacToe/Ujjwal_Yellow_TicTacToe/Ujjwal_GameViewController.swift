@@ -25,18 +25,23 @@ class Ujjwal_GameViewController: UIViewController {
         print(sender.tag)
         
         
-        if(sender.currentTitle == nil) && gameIsOver{
+        if(sender.currentTitle == nil) && !gameIsOver{
         sender.setTitle(theGameModel.WhoseTurnIsIt, for: .normal)
         theGameModel.playMove(sender.tag)
             
             
             if(theGameModel.checkIfTheGameIsOver()){
-                whoIsNext.text = "Game Over"
+                if (theGameModel.gameWinner == "Draw") {
+                    whoIsNext.text = "It's a Draw"
+                } else {
+                    whoIsNext.text = theGameModel.gameWinner + " Won!"
+                }
+                
                 gameIsOver = true
                 
+            } else {
+                whoIsNext.text = theGameModel.WhoseTurnIsIt + "'s Turn"
             }
-        
-        whoIsNext.text = theGameModel.WhoseTurnIsIt + "s Turn"
         
     }
     
